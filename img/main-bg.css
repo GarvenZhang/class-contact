@@ -1,0 +1,28 @@
+.main-bg {
+    background: url("main-bg.png") top left no-repeat;
+}
+
+.Image_1_r3_c2 {
+    width: 502px;
+    height: 300px;
+    background-position: -10px -10px;
+}
+
+.Image_1_r6_c6 {
+    width: 502px;
+    height: 299px;
+    background-position: -10px -320px;
+}
+
+.Image_1_r2_c7 {
+    width: 502px;
+    height: 230px;
+    background-position: -10px -629px;
+}
+
+.Image_1_r7_c3 {
+    width: 500px;
+    height: 201px;
+    background-position: -10px -869px;
+}
+

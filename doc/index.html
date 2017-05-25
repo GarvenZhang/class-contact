@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="application name" content="MAILING LIST FOR CLASS">
+    <meta name="keywords" content="MAILING LIST, CLASS CONTACT, DATA STRUCTURE,HASH TABLE">
+    <meta name="description" content="A SPA ABOUT MAILING LIST FOR CLASS">
+    <meta name="author" content="Garven">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=Edge,chrome=1">
+    <meta name="x5-fullscreen" content="yes">
+    <meta name="x5-page-mode" content="app">
+    <meta name="Window-target" content="_top">
+    <title>DATA STRUCTURE - MAILING LIST FOR CLASS</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="js/garModule/garCss.css">
+    <!--[if lte ie 9]>
+    <script src="js/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--<canvas id="mainBg" class="mainBg"></canvas>-->
+<ul id="menu" class="menu">
+    <li>
+        <a class="gar-canvasModalKey" href="javascript:;">ADD</a>
+        <div class="gar-canvasModal ">
+            <div class="gar-modalBg"></div>
+            <div class="gar-modalBody">
+                <small class="tips">TIPS:
+                    <small>PLEASE FILL A NEW CONTACT!</small>
+                </small>
+                <p class="add_name gar-terminal-like">
+                    <label for="add_name">NAME:</label><input type="text" id="add_name" required size="30">
+                </p>
+                <p class="add_id gar-terminal-like">
+                    <label for="add_id">ID:</label><input type="text" id="add_id" required size="20">
+                </p>
+                <p class="add_tel gar-terminal-like">
+                    <label for="add_tel">tel:</label><input type="text" id="add_tel" required size="20">
+                </p>
+                <p class="add_phone gar-terminal-like">
+                    <label for="add_phone">phone:</label><input type="text" id="add_phone" required size="20">
+                </p>
+                <p class="add_qq gar-terminal-like">
+                    <label for="add_qq">QQ:</label><input type="text" id="add_qq" required size="20">
+                </p>
+                <p class="clearfix">
+                    <button type="button">CONFIRM</button>
+                </p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <a class="gar-canvasModalKey" href="javascript:;">MODIFY</a>
+        <div class="gar-canvasModal ">
+            <div class="gar-modalBg"></div>
+            <div class="gar-modalBody">
+                <small class="tips">TIPS:
+                    <small>PLEASE MODIFY THE INFO EXISTED!</small>
+                </small>
+                <p class="modify_name gar-terminal-like">
+                    <label for="modify_name">NAME:</label><input type="text" id="modify_name" required size="30">
+                </p>
+                <p class="modify_id gar-terminal-like">
+                    <label for="modify_id">ID:</label><input type="text" id="modify_id" required size="20">
+                </p>
+                <p class="modify_tel gar-terminal-like">
+                    <label for="modify_tel">tel:</label><input type="text" id="modify_tel" required size="20">
+                </p>
+                <p class="modify_phone gar-terminal-like">
+                    <label for="modify_phone">phone:</label><input type="text" id="modify_phone" required size="20">
+                </p>
+                <p class="modify_qq gar-terminal-like">
+                    <label for="modify_qq">QQ:</label><input type="text" id="modify_qq" required size="20">
+                </p>
+                <p class="clearfix">
+                    <button type="button">CONFIRM</button>
+                </p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <a class="gar-canvasModalKey" href="javascript:;">DELETE</a>
+        <div class="gar-canvasModal ">
+            <div class="gar-modalBg"></div>
+            <div class="gar-modalBody">
+                <small class="tips">TIPS:
+                    <small>DELETE THE CONTACT BASED ON PHONE OR TEL!</small>
+                </small>
+                <p class="delete_name gar-terminal-like">
+                    <label for="delete_name">NAME:</label><input type="text" id="delete_name" required size="30">
+                </p>
+                <p class="delete_phone gar-terminal-like">
+                    <label for="delete_phone">PHONE:</label><input type="text" id="delete_phone" required size="20">
+                </p>
+                <p class="delete_tel gar-terminal-like">
+                    <label for="delete_tel">TEL:[OPTIONAL]</label><input type="text" id="delete_tel" required size="20">
+                </p>
+                <p class="clearfix">
+                    <button type="button">CONFIRM</button>
+                </p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <a class="gar-canvasModalKey" href="javascript:;">SEARCH</a>
+        <div class="gar-canvasModal ">
+            <div class="gar-modalBg"></div>
+            <div class="gar-modalBody">
+                <small class="tips">TIPS:
+                    <small>PLEASE FILL A QUESTION AND ANSWER TO FIND YOUR ACCOUNT!</small>
+                </small>
+                <p class="search_name gar-terminal-like">
+                    <label for="search_name">NAME:</label><input type="text" id="search_name" required size="30">
+                </p>
+                <p class="clearfix">
+                    <button type="button">CONFIRM</button>
+                </p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <a class="gar-canvasModalKey" href="javascript:;">CHECK</a>
+        <div class="gar-canvasModal ">
+            <div class="gar-modalBg"></div>
+            <div id="body" class="gar-modalBody">
+                <small class="tips">TIPS:
+                    <small>PLEASE FILL A QUESTION AND ANSWER TO FIND YOUR ACCOUNT!</small>
+                </small>
+                <table class="gar-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>TEL</th>
+                        <th>PHONE</th>
+                        <th>QQ</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td>3115004364</td>
+                        <td>GARVEN</td>
+                        <td>81061868</td>
+                        <td>15622178496</td>
+                        <td>931923959</td>
+                    </tr>
+                    </tfoot>
+                </table>
+                <div class="gar-pagination clearfix">
+                    <a class="fl" href="javascript:;">Previous</a>
+                    <div>
+                        [<a href="javascript:;">1</a>]
+                        [<a href="javascript:;">2</a>]
+                        [<a href="javascript:;">3</a>]
+                        [<a href="javascript:;">4</a>]
+                        <span>...</span>
+                        [<a href="javascript:;">99</a>]
+                        [<a href="javascript:;">100</a>]
+                    </div>
+                    <div>
+                        <input type="button" value="10">
+                        <small>/page</small>
+                        <ul class="hide">
+                            <li>
+                                <small>10</small>
+                            </li>
+                            <li>
+                                <small>20</small>
+                            </li>
+                            <li>
+                                <small>30</small>
+                            </li>
+                        </ul>
+                    </div>
+                    <a class="fr" href="javascript:;">Next</a>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+<div id="">
+
+</div>
+<script src="js/garlibrary.js"></script>
+<script src="js/garModule/garJs.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
